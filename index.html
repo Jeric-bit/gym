@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Pump n' Gain Fitness Gym</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="navbar.css">
+
+  <!-- Home Section Custom Styles -->
+  <style>
+    /* Home Hero Section */
+    /* Home Hero Section - Full Screen Cover */
+    #home {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      height: 100dvh;
+      /* Full viewport height on mobile & modern browsers */
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 84px 24px 0;
+      /* Offsets the fixed header height */
+      box-sizing: border-box;
+      background: linear-gradient(180deg, rgba(17, 17, 18, 0.35) 0%, rgba(17, 17, 18, 0.8) 100%),
+        url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      overflow: hidden;
+      border-bottom: none;
+    }
+
+    /* Left Floating Social Sidebar */
+    .hero-socials {
+      position: absolute;
+      left: 28px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      z-index: 10;
+    }
+
+    .hero-social-link {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      background: rgba(24, 23, 26, 0.4);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .hero-social-link:hover {
+      background: var(--red);
+      border-color: var(--red);
+      transform: scale(1.1);
+      color: #ffffff;
+      box-shadow: 0 4px 15px rgba(194, 65, 30, 0.4);
+    }
+
+    .hero-social-link svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* Hero Typography Grid Layout */
+    .hero-content {
+      width: 100%;
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      z-index: 2;
+    }
+
+    .hero-row-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      gap: 20px;
+    }
+
+    .hero-row-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      width: 100%;
+      flex-wrap: wrap;
+    }
+
+    .hero-headline {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-weight: 700;
+      font-size: clamp(34px, 5.5vw, 72px);
+      letter-spacing: -1.5px;
+      color: var(--ink);
+      line-height: 1.1;
+      text-transform: none;
+      margin: 0;
+    }
+
+    /* Pill CTA Button */
+    .hero-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 36px;
+      border-radius: 999px;
+      background: var(--red);
+      color: #FFFFFF;
+      font-family: 'Inter', sans-serif;
+      font-size: 17px;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid transparent;
+      box-shadow: 0 8px 24px rgba(194, 65, 30, 0.35);
+      transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+      white-space: nowrap;
+    }
+
+    .hero-cta-btn:hover {
+      transform: translateY(-3px) scale(1.03);
+      background: var(--pill-hbg);
+      color: var(--pill-hfg);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 900px) {
+      #home {
+        flex-direction: column;
+        justify-content: center;
+        padding: 40px 20px;
+      }
+
+      .hero-socials {
+        position: static;
+        flex-direction: row;
+        transform: none;
+        justify-content: center;
+        margin-bottom: 28px;
+      }
+
+      .hero-row-top {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+      }
+
+      .hero-row-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+      }
+    }
+
+    #home {
+      min-height: 680px;
+      padding: 120px 24px 72px;
+      background: linear-gradient(90deg, rgba(8, 12, 13, 0.94) 0%, rgba(8, 12, 13, 0.68) 42%, rgba(8, 12, 13, 0.15) 100%),
+        linear-gradient(180deg, rgba(8, 12, 13, 0.2) 50%, rgba(8, 12, 13, 0.9) 100%),
+        url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+    }
+
+    #home::after {
+      content: "";
+      position: absolute;
+      right: 7%;
+      bottom: 12%;
+      width: 180px;
+      height: 180px;
+      border: 1px solid rgba(218, 92, 45, 0.45);
+      border-radius: 50%;
+      box-shadow: 0 0 0 18px rgba(218, 92, 45, 0.06), 0 0 0 36px rgba(218, 92, 45, 0.04);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      max-width: 1180px;
+      display: grid;
+      grid-template-columns: minmax(0, 700px) 260px;
+      align-items: end;
+      justify-content: space-between;
+      gap: 48px;
+    }
+
+    .hero-main-copy { text-align: left; }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #f2b08c;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2.4px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .hero-kicker::before { content: ""; width: 36px; height: 2px; background: var(--red); }
+
+    .hero-title {
+      max-width: 720px;
+      color: #fff;
+      font-family: 'Barlow Condensed', Impact, sans-serif;
+      font-size: clamp(62px, 9vw, 120px);
+      font-weight: 600;
+      line-height: 0.88;
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    .hero-title span { color: #e05d2b; }
+
+    .hero-copy {
+      max-width: 520px;
+      color: #d8d9d6;
+      font-size: 16px;
+      line-height: 1.7;
+      margin: 24px 0 30px;
+    }
+
+    .hero-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+
+    .hero-secondary-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 24px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 999px;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .hero-info-rail {
+      display: grid;
+      gap: 14px;
+      padding: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 14px;
+      background: rgba(12, 17, 18, 0.55);
+      backdrop-filter: blur(12px);
+    }
+
+    .hero-info-item { padding-bottom: 14px; border-bottom: 1px solid rgba(255, 255, 255, 0.14); }
+    .hero-info-item:last-child { padding-bottom: 0; border-bottom: 0; }
+    .hero-info-label { display: block; color: #a9aaa7; font-size: 10px; font-weight: 800; letter-spacing: 1.6px; text-transform: uppercase; margin-bottom: 5px; }
+    .hero-info-value { display: block; color: #fff; font-family: 'Barlow Condensed', sans-serif; font-size: 24px; }
+    .hero-cta-btn { padding: 15px 26px; font-size: 15px; }
+
+    @media (max-width: 900px) {
+      #home { flex-direction: column; justify-content: center; padding: 120px 20px 64px; }
+      .hero-content { grid-template-columns: 1fr; gap: 32px; }
+      .hero-main-copy { text-align: center; }
+      .hero-title { font-size: clamp(62px, 14vw, 100px); }
+      .hero-copy { margin-left: auto; margin-right: auto; }
+      .hero-actions { justify-content: center; }
+      .hero-info-rail { grid-template-columns: repeat(3, 1fr); }
+      .hero-info-item { padding: 0 12px 0 0; border-bottom: 0; border-right: 1px solid rgba(255, 255, 255, 0.14); }
+      .hero-info-item:last-child { padding-right: 0; border-right: 0; }
+    }
+
+    @media (max-width: 540px) {
+      #home { min-height: 720px; padding-top: 138px; }
+      .hero-title { font-size: clamp(56px, 17vw, 82px); }
+      .hero-actions { align-items: stretch; flex-direction: column; }
+      .hero-cta-btn, .hero-secondary-btn { width: 100%; }
+      .hero-info-rail { grid-template-columns: 1fr; gap: 12px; }
+      .hero-info-item, .hero-info-item:last-child { padding: 0 0 12px; border-right: 0; border-bottom: 1px solid rgba(255, 255, 255, 0.14); }
+      .hero-info-item:last-child { padding-bottom: 0; border-bottom: 0; }
+    }
+
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .scroll-reveal.is-visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .scroll-reveal { opacity: 1; transform: none; transition: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header id="hdr">
+    <div class="bar">
+      <div class="left">
+        <a class="brand" href="#home" aria-label="Pump n' Gain home">
+          <img
+            src="https://scontent.fmnl17-5.fna.fbcdn.net/v/t39.30808-6/383822240_122102110454052375_2515101282174353432_n.jpg?stp=dst-jpg_tt6&cstp=mx1772x1772&ctp=s1772x1772&_nc_cat=110&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeG5AEf_mfjT69M2hR0YdEHXWURDTUvB5Q1ZRENNS8HlDRfk5_a-f3gI7peeexWqECRnsY-1joay_j0c-gG07LZJ&_nc_ohc=JXayGiACt5YQ7kNvwEATTqv&_nc_oc=Adoxd4QXb-_McNZTJ-e3rL-Y_EsmfYRHBfbwE-wk6Oa-JPBYG5ZirJ7MFeCsLA1vtDI&_nc_zt=23&_nc_ht=scontent.fmnl17-5.fna&_nc_gid=JojQSXFy9flz5wpUiCqpCg&_nc_ss=7b2a8&oh=00_AQO859xHjkJkBTFwfuWGwufA4lBzDE5RccqJjyyHDZ6P8w&oe=6AC98366"
+            alt="Pump n' Gain Fitness Gym Logo" class="brand-logo">
+          <span class="hd">
+            <b>Pump n' Gain</b>
+            <small>FITNESS GYM</small>
+          </span>
+        </a>
+      </div>
+
+      <nav class="nav" id="nav" aria-label="Main">
+        <a class="link active" href="#home">Home</a>
+
+        <div class="dd" id="dd">
+          <button aria-haspopup="true" aria-expanded="false">
+            About Us
+            <svg class="caret" viewBox="0 0 10 10">
+              <path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+            </svg>
+          </button>
+
+          <div class="menu">
+            <a class="item" href="#about">
+              <span class="ico">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+              <span class="txt">
+                <span class="title">Our Story</span>
+                <small>Who we are and why we lift</small>
+              </span>
+            </a>
+
+            <a class="item" href="#about">
+              <span class="ico">
+                <svg viewBox="0 0 24 24">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                  <circle cx="12" cy="7" r="4" fill="none" stroke="currentColor" stroke-width="2" />
+                </svg>
+              </span>
+              <span class="txt">
+                <span class="title">Head Coach</span>
+                <small>Meet Coach Alex</small>
+              </span>
+            </a>
+
+            <a class="item" href="#about">
+              <span class="ico">
+                <svg viewBox="0 0 24 24">
+                  <path d="M6.5 6.5h11M6.5 17.5h11M3 9v6M21 9v6M6 8v8M18 8v8" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+              <span class="txt">
+                <span class="title">Facilities</span>
+                <small>Equipment, classes and schedule</small>
+              </span>
+            </a>
+
+            <a class="cta" href="#signup">
+              <span>New here? Book a free tour</span>
+              <svg class="go-cta" viewBox="0 0 16 16">
+                <path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <a class="link" href="#plans">Plans</a>
+        <a class="link" href="#location">Location</a>
+        <a href="signin.html">Sign In</a>
+        <a class="signup" href="signup.html">Sign Up</a>
+      </nav>
+
+
+      <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false">
+        <i></i><i></i><i></i>
+      </button>
+    </div>
+
+    <div class="progress" id="prog"></div>
+  </header>
+
+  <main>
+    <!-- Updated Hero Section -->
+    <section id="home">
+      <!-- Left Floating Social Icons -->
+      <div class="hero-socials">
+        <a href="https://www.facebook.com/profile.php?id=61551571257657" class="hero-social-link" aria-label="Facebook">
+          <svg viewBox="0 0 24 24">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" fill="currentColor" />
+          </svg>
+        </a>
+        <a href="#" class="hero-social-link" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+          </svg>
+        </a>
+        <a href="#" class="hero-social-link" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 1 1-2.896-2.892c.381 0 .743.073 1.077.206V9.45a6.34 6.34 0 1 0 5.264 6.222V8.782a8.217 8.217 0 0 0 4.77 1.524V6.862a4.83 4.83 0 0 1-1.000-.176z" />
+          </svg>
+        </a>
+        <a href="#" class="hero-social-link" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- Hero Main Content -->
+      <div class="hero-content">
+        <div class="hero-main-copy">
+          <span class="hero-kicker">Train with purpose</span>
+          <h1 class="hero-title">Build your<br><span>stronger</span> life.</h1>
+          <p class="hero-copy">A focused training sanctuary for people who want better strength, better energy, and a community that keeps showing up.</p>
+          <div class="hero-actions">
+            <a href="#signup" class="hero-cta-btn">Book a visit <span aria-hidden="true">&rarr;</span></a>
+            <a href="#plans" class="hero-secondary-btn">Explore membership</a>
+          </div>
+        </div>
+        <div class="hero-info-rail" aria-label="Gym highlights">
+          <div class="hero-info-item"><span class="hero-info-label">Open daily</span><strong class="hero-info-value">7AM - 11PM</strong></div>
+          <div class="hero-info-item"><span class="hero-info-label">Training floor</span><strong class="hero-info-value">7AM - 11PM</strong></div>
+          <div class="hero-info-item"><span class="hero-info-label">First session</span><strong class="hero-info-value">Always welcome</strong></div>
+        </div>
+
+      </div>  
+    </section>
+
+    <!-- ==========================================
+         ABOUT US SECTION (#about)
+         ========================================== -->
+    <section id="about">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+            </svg>
+            About Pump n' Gain
+          </span>
+          <h2 class="section-title">BUILT FOR THOSE WHO REFUSE TO SETTLE</h2>
+          <p class="section-desc">At Pump n' Gain Fitness Gym, we're not just an ordinary gym—we're an iron sanctuary
+            built on passion, accountability, and relentless drive. From beginners lifting their first barbell to
+            seasoned lifters chasing personal records, our club is designed to help you break limits.</p>
+        </div>
+
+        <!-- Real Gym Photo Showcase -->
+        <div class="gym-gallery-intro">
+          <h3>Inside Our Training Facility</h3>
+          <p>Experience an authentic iron atmosphere designed for real training and serious progression.</p>
+        </div>
+
+        <div class="gym-gallery-grid">
+          <!-- Photo 1: Heavy Iron & Free Weights -->
+          <div class="gym-gallery-item">
+            <img src="https://i.imgur.com/quQbH98.jpeg"
+              alt="Pump n' Gain Free Weights Floor" loading="lazy">
+            <div class="gym-gallery-overlay">
+              <span class="gym-gallery-tag">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M6 18h12M6 6h12M4 10h16M4 14h16M2 8v8M22 8v8" />
+                </svg>
+                FREE WEIGHTS & DUMBBELLS
+              </span>
+              <h4 class="gym-gallery-title">Heavy Iron & Dumbbells</h4>
+              <p class="gym-gallery-desc">Bumper and Steel plates and dumbbells up to 100 lbs, flat & incline benches, and heavy
+                free-weight zones.</p>
+            </div>
+          </div>
+
+          <!-- Photo 2: Power Cages & Barbell Platforms -->
+          <div class="gym-gallery-item">
+            <img src="https://i.imgur.com/qzZPd1p.jpeg"
+              alt="Pump n' Gain Power Cages" loading="lazy">
+            <div class="gym-gallery-overlay">
+              <span class="gym-gallery-tag">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M18 20V10M12 20V4M6 20v-6" />
+                </svg>
+                SQUAT & LIFTING PLATFORMS
+              </span>
+              <h4 class="gym-gallery-title">Competition Power Racks</h4>
+              <p class="gym-gallery-desc">Heavy-duty power cages engineered for safe squats, deadlifts, bench presses,
+                and heavy pulls.</p>
+            </div>
+          </div>
+
+          <!-- Photo 3: Functional Turf & Cardio Suite -->
+          <div class="gym-gallery-item">
+            <img src="https://i.imgur.com/pg1sddC.jpeg"
+              alt="Pump n' Gain Functional Turf" loading="lazy">
+            <div class="gym-gallery-overlay">
+              <span class="gym-gallery-tag">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+                CARDIO & FUNCTIONAL TURF
+              </span>
+              <h4 class="gym-gallery-title">Conditioning & Turf Zone</h4>
+              <p class="gym-gallery-desc">threadmill and biking equipment for cardiovascular training.</p>
+            </div>
+          </div>
+
+          <!-- Photo 4: Precision Isolation & Machine Suite -->
+          <div class="gym-gallery-item">
+            <img src="https://scontent.fmnl17-6.fna.fbcdn.net/v/t39.30808-6/686525697_122217201302052375_1945135004130397736_n.jpg?stp=dst-jpg_tt6&cstp=mx1536x2048&ctp=s1536x2048&_nc_cat=101&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGetVaZk_2maeftGjI9U9Zh-LEYbH-MVX_4sRhsf4xVf9_JqBLgdreEhAokefH93fAA5-hk_f_qWHtECiBfdMfI&_nc_ohc=CHL9k1XjI1IQ7kNvwFk4rsp&_nc_oc=AdojlOkHw_XvVfZ6UFe3xgYJQauuKgT7ehtG1OFewIf8kj6Xdjm-xe2ct7M2nB1cFWk&_nc_zt=23&_nc_ht=scontent.fmnl17-6.fna&_nc_gid=jI9ZaO8wwL96zfgr8XVh3g&_nc_ss=7a2a8&oh=00_AQMefaEfFEPRH1oUYUTXPMKnUAsVMKQLJ7IyjVd7ZNh0Ig&oe=6AD590A4"
+              alt="Pump n' Gain Strength Machines" loading="lazy">
+            <div class="gym-gallery-overlay">
+              <span class="gym-gallery-tag">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                </svg>
+                TARGETED MACHINES
+              </span>
+              <h4 class="gym-gallery-title">Muscle Isolation Machines</h4>
+              <p class="gym-gallery-desc">Biomechanically optimized plate-loaded and pin-selected machines for targeted
+                muscle hypertrophy.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Single Coach Spotlight -->
+        <div class="single-coach-spotlight">
+          <!-- Left: Coach Portrait -->
+          <div class="coach-spotlight-img-wrap">
+            <img src="https://scontent.fmnl17-8.fna.fbcdn.net/v/t39.30808-6/489294922_2470756849940876_1894284752893670576_n.jpg?stp=dst-jpg_tt6&cstp=mx540x960&ctp=s540x960&_nc_cat=111&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=669761&_nc_eui2=AeFTLHkYzjDTdxOI4dysAfs7CkHx484JKwUKQfHjzgkrBX9DtOPM3bfpEHJJTlohHEdKkRYax-2xm-d3IM-IPpQ2&_nc_ohc=UqacMSjMlEsQ7kNvwEy0N5i&_nc_oc=Adpi8yDCqB3bphqq2xdBkvjLXb174iUTtJwm14vLpxry2L-TNw9F6qK5A_mWFxoPerQ&_nc_zt=23&_nc_ht=scontent.fmnl17-8.fna&_nc_gid=UPIltXXhtA-RY5uf2XuokA&_nc_ss=7b2a8&oh=00_AQOhonHfMN0ZGdyl2_7FbLPVETDn667A2-RC4HLAa55r-Q&oe=6AD5800C"
+              alt="Jovic Esternon" loading="lazy">
+            <div class="coach-spotlight-overlay"></div>
+            <div class="coach-spotlight-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <circle cx="12" cy="8" r="6" />
+                <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
+              </svg>
+              HEAD COACH &amp; FOUNDER
+            </div>
+          </div>
+
+          <!-- Right: Coach Profile & Philosophy -->
+          <div class="coach-spotlight-info">
+            <span class="coach-spotlight-tag">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+              </svg>
+              MEET YOUR HEAD COACH
+            </span>
+            <h3 class="coach-spotlight-name">Jovic Esternon</h3>
+            <div class="coach-spotlight-role">Founder &amp; Head Coach &bull; Certified Strength Specialist</div>
+
+            <p class="coach-spotlight-quote">
+              &ldquo;I built Pump n' Gain to be the gym I always wanted to train in—zero ego, no overcrowding, and real
+              coaching. Every single member who walks through our doors gets my personal attention on lifting technique,
+              injury prevention, and real progress.&rdquo;
+            </p>
+
+            <div class="coach-pillars-grid">
+              <div class="coach-pillar-item">
+                <div class="coach-pillar-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  </svg>
+                </div>
+                <div class="coach-pillar-text">
+                  <h5>1-on-1 Form Audits</h5>
+                  <p>Master lifting mechanics to prevent joint strain and maximize muscle activation.</p>
+                </div>
+              </div>
+
+              <div class="coach-pillar-item">
+                <div class="coach-pillar-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                  </svg>
+                </div>
+                <div class="coach-pillar-text">
+                  <h5>Custom Progression</h5>
+                  <p>Personalized workout routines programmed to fit your body type and schedule.</p>
+                </div>
+              </div>
+
+              <div class="coach-pillar-item">
+                <div class="coach-pillar-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="m9 12 2 2 4-4" />
+                  </svg>
+                </div>
+                <div class="coach-pillar-text">
+                  <h5>Nutrition Guidance</h5>
+                  <p>Practical, science-backed nutritional advice to fuel your body and shred fat.</p>
+                </div>
+              </div>
+
+              <div class="coach-pillar-item">
+                <div class="coach-pillar-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                    <circle cx="9" cy="7" r="4" />
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                  </svg>
+                </div>
+                <div class="coach-pillar-text">
+                  <h5>Direct Accountability</h5>
+                  <p>Direct floor guidance and personal spotting from Coach Jovic every workout.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="coach-spotlight-cta">
+              <a href="#signup" class="hero-cta-btn" onclick="selectPlan('Monthly Pro (₱1,800)')">Train With Coach jovic
+                &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <section class="reviews-card" aria-labelledby="reviews-title">
+          <div class="reviews-heading">
+            <div>
+              <span class="coach-spotlight-tag">MEMBER REVIEWS</span>
+              <h3 id="reviews-title">The work speaks for itself.</h3>
+              <p>Real words from members building stronger routines at Pump n' Gain.</p>
+            </div>
+            <div class="reviews-score">
+              <strong>4.9</strong>
+              <span class="reviews-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+              <small>Member rating</small>
+            </div>
+          </div>
+
+          <div class="reviews-grid">
+            <article class="review-item">
+              <div class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <blockquote>"Perfect place to plan your fitness journey with their affordable rates and very accommodating staff and coach. Must try!."</blockquote>
+              <cite><strong>Shaira Mae B.</strong><span>Member</span></cite>
+            </article>
+            <article class="review-item">
+              <div class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <blockquote>"Great gym and great staff. Very accommodating staff and owner. Solid
+#PUMPN'GAIN."</blockquote>
+              <cite><strong>Brame Edward B.</strong><span>Member</span></cite>
+            </article>
+            <article class="review-item">
+              <div class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <blockquote>"Have a very approachable coach and kind. Nice and clean fitness gym.."</blockquote>
+              <cite><strong>Alyssa.</strong><span>Member</span></cite>
+            </article>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         PLANS SECTION (#plans)
+         ========================================== -->
+    <section id="plans">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+            </svg>
+            Membership Packages
+          </span>
+          <h2 class="section-title">TRANSPARENT PLANS. MAXIMUM VALUE.</h2>
+          <p class="section-desc">No lock-in traps or hidden maintenance charges. Choose the membership package that
+            fits your personal lifestyle and fitness commitment.</p>
+        </div>
+
+        <!-- 4 Pricing Cards -->
+        <div class="plans-grid">
+          <!-- Day Pass -->
+          <div class="plan-card">
+            <div class="plan-header">
+              <h3 class="plan-tier-name">Day Pass</h3>
+              <p class="plan-desc">Single-day workout access for travelers, guests, and casual sessions.</p>
+            </div>
+            <div class="plan-price-wrap">
+              <span class="plan-currency">&#8369;</span>
+              <span class="plan-amount">50</span>
+              <span class="plan-period">/ day</span>
+            </div>
+            <ul class="plan-features-list">
+              <li>
+                <svg viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd" />
+                </svg>
+                <span>Full access to gym floor & free weights</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd" />
+                </svg>
+                <span>Full cardio & functional</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd" />
+                </svg>
+                <span>Clean restrooms</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd" />
+                </svg>
+                <span>Free water and parking</span>
+              </li> 
+            </ul>
+            <a href="#signup" class="plan-cta-btn" onclick="selectPlan('Day Pass (₱200)')">Get Day Pass</a>
+          </div>
+
+          <!-- Monthly Pro (Featured) -->
+          <div class="plan-card featured">
+            <span class="plan-popular-badge">MOST POPULAR</span>
+            <div class="plan-header">
+              <h3 class="plan-tier-name">Monthly Pro</h3>
+              <p class="plan-desc">Our core monthly membership for consistent gains and accountability.</p>
+            </div>
+            <div class="plan-price-wrap">
+              <span class="plan-currency">&#8369;</span>
+              <span class="plan-amount">600</span>
+              <span class="plan-period">/ month</span>
+            </div>
+            <ul class="plan-features-list">
+              <li>
+                <svg viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd" />
+                </svg>
+                <span>Unlimited gym access</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd" />
+                </svg>
+                <span>Full access to gym floor & free weights</span>
+              </li>
+              <ul class="plan-features-list">
+              <li>
+                <svg viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd" />
+                </svg>
+                <span>Full access to gym floor & free weights</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd" />
+                </svg>
+                <span>Full cardio & functional</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd" />
+                </svg>
+                <span>Clean restrooms</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd" />
+                </svg>
+                <span>Free water and parking</span>
+              </li> 
+            </ul>
+            <a href="#signup" class="plan-cta-btn" onclick="selectPlan('Monthly Pro (₱1,800)')">Choose Monthly Pro</a>
+          </div>
+
+          <!-- Quarterly Flex -->
+          <div class="plan-card">
+            <div class="plan-header">
+              <h3 class="plan-tier-name">Quarterly Flex</h3>
+              <p class="plan-desc">Commit to 90 days of transformation at a discounted rate.</p>
+            </div>
+            <div class="plan-price-wrap">
+              <span class="plan-currency">&#8369;</span>
+              <span class="plan-amount">1,700</span>
+
+              <span class="plan-period">/ 3 mos</span>
+            </div>
+            <ul class="plan-features-list">
+              <li>
+                <svg viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd" />
+                </svg>
+                <span>Unlimited gym access</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd" />
+                </svg>
+                <span>Full access to gym floor & free weights</span>
+              </li>
+              <ul class="plan-features-list">
+              <li>
+                <svg viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd" />
+                </svg>
+                <span>Full access to gym floor & free weights</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd" />
+                </svg>
+                <span>Full cardio & functional</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd" />
+                </svg>
+                <span>Clean restrooms</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd" />
+                </svg>
+                <span>Free water and parking</span>
+              </li> 
+            </ul>
+            <a href="#signup" class="plan-cta-btn" onclick="selectPlan('Quarterly Flex (₱1,700)')">Choose Quarterly</a>
+          </div>
+
+          <!-- Annual VIP -->
+          <div class="plan-card">
+            <div class="plan-header">
+              <h3 class="plan-tier-name">Annual VIP</h3>
+              <p class="plan-desc">For the dedicated lifter seeking maximum value.</p>
+            </div>
+            <div class="plan-price-wrap">
+              <span class="plan-currency">&#8369;</span>
+              <span class="plan-amount">6000</span>
+              <span class="plan-period">/ year</span>
+            </div>
+            <ul class="plan-features-list">
+              <li>
+                <svg viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd" />
+                </svg>
+                <span>Unlimited gym access</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd" />
+                </svg>
+                <span>Full access to gym floor & free weights</span>
+              </li>
+              <ul class="plan-features-list">
+              <li>
+                <svg viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd" />
+                </svg>
+                <span>Full access to gym floor & free weights</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd" />
+                </svg>
+                <span>Full cardio & functional</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd" />
+                </svg>
+                <span>Clean restrooms</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd" />
+                </svg>
+                <span>Free water and parking</span>
+              </li> 
+            </ul>
+            <a href="#signup" class="plan-cta-btn" onclick="selectPlan('Annual VIP (₱16,500)')">Go VIP Annual</a>
+          </div>
+        </div>
+
+        <!-- Trust Badges -->
+        <div class="plan-trust-banner">
+          <div class="plan-trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+            <span>Year-round Availability</span>
+          </div>
+          <div class="plan-trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10" />
+              <path d="m9 12 2 2 4-4" />
+            </svg>
+            <span>Zero Sign-Up & Registration Fees</span>
+          </div>
+          <div class="plan-trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+              <line x1="16" y1="2" x2="16" y2="6" />
+              <line x1="8" y1="2" x2="8" y2="6" />
+              <line x1="3" y1="10" x2="21" y2="10" />
+            </svg>
+            <span>student discounts</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         JOIN TODAY SECTION (#signup)
+         ========================================== -->
+    <section id="signup">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+              <circle cx="8.5" cy="7" r="4" />
+              <line x1="20" y1="8" x2="20" y2="14" />
+              <line x1="23" y1="11" x2="17" y2="11" />
+            </svg>
+            Start Your Journey
+          </span>
+          <h2 class="section-title">CONTACT US OR JOIN TODAY</h2>
+          <p class="section-desc">Experience the energy of Pump n' Gain firsthand. Fill out the quick reservation below
+            to tell us how we can help, or register your online account in minutes.</p>
+        </div>
+
+        <div class="join-layout">
+          <!-- Left Perks & Club Info -->
+          <div class="join-info-card">
+            <div class="join-info-top">
+              <h3>The Pump n' Gain Experience</h3>
+              <p>Ready to see why hundreds of lifters make Pump n' Gain their second home? Here is what you get when you
+                step through our doors:</p>
+
+              <ul class="join-perks-list">
+                <li class="join-perk-item">
+                  <div class="join-perk-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h5>Talk With Our Team</h5>
+                    <p>Ask about memberships, training goals, student discounts, or the best way to get started.
+                    </p>
+                  </div>
+                </li>
+
+                <li class="join-perk-item">
+                  <div class="join-perk-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                      <circle cx="12" cy="7" r="4" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h5>1-on-1 Fitness Assessment</h5>
+                    <p>Meet with a coach for a quick 15-minute consultation to define your custom muscle & fat loss
+                      goals.</p>
+                  </div>
+                </li>
+
+                <li class="join-perk-item">
+                  <div class="join-perk-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                      <polyline points="22 4 12 14.01 9 11.01" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h5>Instant Check-In</h5>
+                    <p>Quick check-in for gym entry anytime from 7:00 AM to 11:00 PM.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+          <!-- Right Contact Form -->
+          <div class="join-form-card">
+            <!-- Form View -->
+            <div id="reservationFormWrapper">
+              <div class="join-form-header">
+                <h4>Contact Pump n' Gain</h4>
+                <p>Send us your details and our team will follow up with the right next step.</p>
+              </div>
+
+              <form id="reservationForm" onsubmit="handleReservation(event)">
+                <div class="join-form-grid">
+                  <div class="form-group full-width">
+                    <label class="form-label" for="resName">Full Name</label>
+                    <input type="text" id="resName" class="form-input" placeholder="e.g. Juan Dela Cruz" required>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="resEmail">Email Address</label>
+                    <input type="email" id="resEmail" class="form-input" placeholder="you@example.com" required>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="resPhone">Phone Number</label>
+                    <input type="tel" id="resPhone" class="form-input" placeholder="0917 123 4567" required>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="resPlan">Preferred Option</label>
+                    <select id="resPlan" class="form-select">
+                      <option value="Day Pass (₱50)">Day Pass - ₱50</option>
+                      <option value="Monthly Pro (₱600)" selected>Monthly Pro - ₱600</option>
+                      <option value="Quarterly Flex (₱1,700)">Quarterly Flex - ₱1,700</option>
+                      <option value="Annual VIP (₱6,000)">Annual VIP - ₱6,000</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="resGoal">Primary Fitness Goal</label>
+                    <select id="resGoal" class="form-select">
+                      <option value="Muscle Hypertrophy & Strength">Muscle Building & Strength</option>
+                      <option value="Fat Loss & Toning">Fat Loss & Conditioning</option>
+                      <option value="General Health & Mobility">General Fitness & Wellness</option>
+                      <option value="Athletic & Sports Performance">Athletic Performance</option>
+                    </select>
+                  </div>
+                </div>
+
+                <button type="submit" class="form-submit-btn">
+                  <span>Send Inquiry</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </button>
+
+                <p class="form-notice">
+                  Prefer a full member account with instant checkout? <a href="signup.html">Register Online Here</a>
+                </p>
+              </form>
+            </div>
+
+            <!-- Success Confirmation Box -->
+            <div id="reservationSuccessBox" class="reservation-success-box">
+              <div class="reservation-success-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </div>
+              <h4>Message Received!</h4>
+              <p id="successMsg">Thanks for reaching out. Our Pump n' Gain team will contact you with the next steps.</p>
+
+              <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                <a href="signup.html" class="hero-cta-btn" style="padding: 12px 28px; font-size: 14px;">Complete Online
+                  Registration</a>
+                <button type="button" class="plan-cta-btn" style="width: auto; padding: 12px 24px; font-size: 14px;"
+                  onclick="resetReservationForm()">Send Another Message</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="location-panel" id="location">
+          <div class="location-panel-heading">
+            <div>
+              <span class="location-kicker">Find your training floor</span>
+              <h4>Visit Pump n' Gain</h4>
+            </div>
+            <svg class="location-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0Z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+          </div>
+          <div class="map-frame">
+            <img
+              src="https://i.imgur.com/SSrNXWp.png"
+              alt="Map showing Pump n' Gain Fitness Gym near Gainers Plaza, Metro Hub" loading="eager">
+          </div>
+          <div class="location-panel-footer">
+            <span>Blk 18 Lot 1, JEL Bldg 3rd Floor, Corner Ascencion, Calamansian, Caloocan, 1424 Metro Manila</span>
+            <a href="https://www.google.com/maps/place/Pump+N+Gain+Fitness+Gym/@14.7478606,121.0417674,14z/data=!4m14!1m7!3m6!1s0x3397b14b64448bab:0x68aee20ed5daee51!2sPump+N+Gain+Fitness+Gym!8m2!3d14.7479!4d121.0622924!16s%2Fg%2F11l5wtksd8!3m5!1s0x3397b14b64448bab:0x68aee20ed5daee51!8m2!3d14.7479!4d121.0622924!16s%2Fg%2F11l5wtksd8?entry=ttu&g_ep=EgoyMDI2MTAxMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Get directions &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="ft-container">
+      <div class="ft-grid">
+        <div class="ft-brand">
+          <div class="ft-logo">PUMP N' GAIN</div>
+          <div class="ft-slogan">FITNESS GYM & TRAINING SANCTUARY</div>
+        </div>
+
+        <div class="ft-col">
+          <a href="#home">Home</a>
+          <a href="#about">About Us</a>
+          <a href="#plans">Membership Plans</a>
+        </div>
+
+        <div class="ft-col">
+          <a href="#about">Coach Jovic Esternon</a>
+          <a href="#about">Championship Gear</a>
+          <a href="#plans">Day Pass (₱50)</a>
+          <a href="#plans">Monthly Pro (₱600)</a>
+        </div>
+
+        <div class="ft-col">
+          <a href="signin.html">Member Sign In</a>
+          <a href="signup.html">Create Account</a>
+          <a href="member-dashboard.html">Member Portal</a>
+          <a href="https://www.google.com/maps/place/Pump+N+Gain+Fitness+Gym/@14.7478606,121.0417674,14z/data=!4m14!1m7!3m6!1s0x3397b14b64448bab:0x68aee20ed5daee51!2sPump+N+Gain+Fitness+Gym!8m2!3d14.7479!4d121.0622924!16s%2Fg%2F11l5wtksd8!3m5!1s0x3397b14b64448bab:0x68aee20ed5daee51!8m2!3d14.7479!4d121.0622924!16s%2Fg%2F11l5wtksd8?entry=ttu&g_ep=EgoyMDI2MTAxMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Gym Location</a>
+        </div>
+
+        <div class="ft-col">
+          <a href="#signup">Hours: 7AM - 11PM</a>
+          <a href="tel:09171234567">+63 966 4792 371</a>
+          <a href="mailto:pumpngain@gmail.com">Pump n' Gain</a>
+          <a href="#home">Back to Top &uarr;</a>
+        </div>
+      </div>
+
+      <hr class="ft-divider">
+
+      <div class="ft-bottom">
+        <div class="ft-socials">
+          <a href="#" class="social-btn" aria-label="Facebook">
+            <svg viewBox="0 0 24 24">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" fill="currentColor" />
+            </svg>
+          </a>
+          <a href="#" class="social-btn" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+            </svg>
+          </a>
+          <a href="#" class="social-btn" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 1 1-2.896-2.892c.381 0 .743.073 1.077.206V9.45a6.34 6.34 0 1 0 5.264 6.222V8.782a8.217 8.217 0 0 0 4.77 1.524V6.862a4.83 4.83 0 0 1-1.000-.176z" />
+            </svg>
+          </a>
+          <a href="#" class="social-btn" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+            </svg>
+          </a>
+        </div>
+        <p class="ft-copy">&copy; 2026 Pump n' Gain Fitness Gym. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script src="navbar.js"></script>
+
+  <!-- Interactive Section Scripts -->
+  <script>
+    function selectPlan(planName) {
+      const planSelect = document.getElementById('resPlan');
+      if (planSelect) {
+        planSelect.value = planName;
+      }
+    }
+
+    function handleReservation(e) {
+      e.preventDefault();
+      const name = document.getElementById('resName').value.trim();
+      const plan = document.getElementById('resPlan').value;
+
+      document.getElementById('reservationFormWrapper').style.display = 'none';
+      const successBox = document.getElementById('reservationSuccessBox');
+      const successMsg = document.getElementById('successMsg');
+      successMsg.innerHTML = `Welcome, <strong>${name}</strong>! Your reservation for <strong>${plan}</strong> is confirmed. Simply show this screen or give your contact number at the front desk when you arrive.`;
+      successBox.style.display = 'block';
+    }
+
+    function resetReservationForm() {
+      document.getElementById('reservationForm').reset();
+      document.getElementById('reservationFormWrapper').style.display = 'block';
+      document.getElementById('reservationSuccessBox').style.display = 'none';
+    }
+  </script>
+</body>
+
+</html>
